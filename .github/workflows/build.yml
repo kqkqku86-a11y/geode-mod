@@ -3,8 +3,6 @@ on: [push, pull_request]
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
     name: Build Mod
     runs-on: ubuntu-latest
     steps:
@@ -13,5 +11,5 @@ jobs:
       - name: Build Geode Mod
         uses: geode-sdk/build-geode-mod@main
         with:
-          bindings: true
-          output-binary: true
+          target: android64
+          bindings: 'geode-sdk/geode'

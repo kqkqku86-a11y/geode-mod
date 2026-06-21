@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 
+# Mengaktifkan ekstensi pencarian internal Geode CLI di server
+set(CMAKE_CONFIG_TEMPLATE_VERSION 1.0.0)
+
+# Menghubungkan utilitas build bawaan Geode SDK
+include($ENV{GEODE_SDK}/cmake/GeodeWeaponry.cmake)
+
 project(GeodeMod)
 
-# Trik Makro: Menghubungkan modul CMake langsung dari folder unduhan Geode SDK di GitHub
-if(DEFINED ENV{GEODE_SDK})
-    list(APPEND CMAKE_MODULE_PATH "$ENV{GEODE_SDK}/cmake")
-    set(Geode_DIR "$ENV{GEODE_SDK}/cmake")
-endif()
-
-# Memuat paket utama Geode secara aman
+# Memuat paket Geode (Jalur dijamin aman karena baris include di atas)
 find_package(Geode REQUIRED)
 
-# Membuat file berekstensi .geode dari kode sumber Anda
+# Membuat biner .geode
 add_geode_mod(
     ${PROJECT_NAME}
     SOURCES

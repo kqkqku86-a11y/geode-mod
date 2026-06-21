@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.13)
 
-# Membuat proyek Geode baru
+# Membantu CMake menemukan lokasi internal Geode SDK di GitHub Actions
+include($ENV{GEODE_SDK}/cmake/GeodeWeaponry.cmake)
+
 project(GeodeMod)
 
-# Mengintegrasikan sistem Geode ke dalam CMake
+# Menemukan paket Geode yang sudah terinstal otomatis di server
 find_package(Geode REQUIRED)
 
-# Menentukan file source code yang akan dikompilasi
+# Membuat file .geode berdasarkan source code Anda
 add_geode_mod(
     ${PROJECT_NAME}
     SOURCES

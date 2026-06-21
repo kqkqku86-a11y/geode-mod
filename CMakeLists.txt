@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 # Mengaktifkan ekstensi pencarian internal Geode CLI di server
-set(CMAKE_CONFIG_TEMPLATE_VERSION 1.0.0)
-
 # Menghubungkan utilitas build bawaan Geode SDK
-include($ENV{GEODE_SDK}/cmake/GeodeWeaponry.cmake)
 
 project(GeodeMod)
 

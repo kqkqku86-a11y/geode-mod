@@ -9,3 +9,4 @@ jobs:
         with:
           target: Android64
           sdk: v5.7.1
+          setup-cmake: true
